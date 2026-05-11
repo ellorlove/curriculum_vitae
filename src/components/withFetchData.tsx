@@ -1,13 +1,12 @@
-import { useEffect, type ComponentType } from "react";
+import { type ComponentType } from "react";
 import { useFetch } from "../hooks/fetch.hook";
 
-const withWrappedData = <P extends object>(
+const withFetchedData = <P extends object>(
     WrappedComponent : ComponentType<P>,
-    url : RequestInfo,
-    key : string
+    url : RequestInfo
 ) => {
     return (props: Omit<P, 'data'>) => {
-        const {data, load, error} = useFetch(url, key)
+        const {data, load, error} = useFetch(url)
 
         if(load == 'loading') return null
         if(error){
@@ -20,4 +19,4 @@ const withWrappedData = <P extends object>(
 
 }
 
-export {withWrappedData}
+export {withFetchedData}

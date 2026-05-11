@@ -1,39 +1,25 @@
 import { Fragment } from "react"
+import { v4 as uuidv4} from 'uuid';
 import { type Experience } from "../types/experience"
-import { withWrappedData } from "./withFetchData"
-
-const ExperienceView = () => {
-
-    return(
-        <div className="m-4 flex flex-col h-full">
-            <div className="flex items-center gap-4 mb-4">
-                <h2 className="text-2xl font-bold whitespace-nowrap">Experience</h2>
-                <div className="flex-1 h-[3px] bg-gray-400/50"></div>
-            </div>
-            <div className='flex flex-col h-full justify-around'>
-            <WrappedExperience/>
-            </div>
-        </div>
-    )
-}
+import { withFetchedData } from "./withFetchData"
+import { withInfoBlock } from "./withInfoBlock";
 
 const ExperienceDataView = ({data} : {data : Experience[]}) => {
     if(!data) return null
     return (
-        <>
+        <div className='flex flex-col h-full justify-around'>
             {data.map(item => (
-                <Fragment key={item.id}>
+                <Fragment key={uuidv4()}>
                     <ExperienceItem {...item}/>
                 </Fragment>
             ))}
-        </>
+        </div>
     )
 }
 
-const WrappedExperience = withWrappedData(
+const WrappedExperience = withFetchedData(
     ExperienceDataView, 
-    '/data/experience.json', 
-    'experience')
+    '/data/experience.json')
 
 const ExperienceItem = (props: Experience) => {
 
@@ -51,4 +37,4 @@ const ExperienceItem = (props: Experience) => {
     )
 }
 
-export {ExperienceView}
+export const ExperienceBlock = withInfoBlock(WrappedExperience, 'Experience')

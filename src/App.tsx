@@ -1,17 +1,19 @@
 import './App.css'
-import { ExperienceView } from './components/experience'
+import { ExperienceBlock } from './components/experience'
 import { Header } from './components/header'
-import { SummaryView } from './components/summary'
+import { SkillsBlock } from './components/skills'
+import { SummaryBlock } from './components/summary'
 
 function App() {
 
   return (
     <>
-      <div id='page' className='h-screen'>
+      <div id='page' className='h-full'>
         <Header/>
         <section id='mainInfo' className='p-8 grid grid-cols-[33%_67%]'>
-          <SummaryView/>
-          <ExperienceView/>
+          <SummaryBlock/>
+          <ExperienceBlock/>
+          <SkillsBlock/>
         </section>
       </div>
     </>
