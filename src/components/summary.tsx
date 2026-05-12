@@ -1,21 +1,14 @@
-import { Fragment } from "react/jsx-runtime"
 import { withFetchedData } from "./withFetchData"
-import { v4 as uuidv4} from 'uuid'
 import { withInfoBlock } from "./withInfoBlock"
+import { withListView } from "./withListView"
 
-const SummaryView = ({data} : {data : string[]}) => {
-    if(!data) return null
-
-    return(
-        <div className="text-justify">
-            {data.map(item => (
-                <Fragment key={uuidv4()}>
-                    {item}<br/>
-                </Fragment>
-            ))}
-        </div>
+const SummaryItem = ({value} : {value : string}) => {
+    return (
+        <>{value ? value : <><br/><br/></>}</>
     )
 }
+
+const SummaryView = withListView(SummaryItem, 'text-justify')
 
 const WrappedSummary = withFetchedData(
     SummaryView,

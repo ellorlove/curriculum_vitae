@@ -1,34 +1,26 @@
-import { Fragment } from "react"
-import { v4 as uuidv4} from 'uuid';
-import { type Experience } from "../types/experience"
 import { withFetchedData } from "./withFetchData"
-import { withInfoBlock } from "./withInfoBlock";
+import { withInfoBlock } from "./withInfoBlock"
+import { withListView } from "./withListView"
 
-const ExperienceDataView = ({data} : {data : Experience[]}) => {
-    if(!data) return null
-    return (
-        <div className='flex flex-col h-full justify-around'>
-            {data.map(item => (
-                <Fragment key={uuidv4()}>
-                    <ExperienceItem {...item}/>
-                </Fragment>
-            ))}
-        </div>
-    )
+interface Experience {
+    id : number,
+    title : string,
+    company : string,
+    location : string,
+    period : string
 }
 
-const WrappedExperience = withFetchedData(
-    ExperienceDataView, 
-    '/data/experience.json')
-
-const ExperienceItem = (props: Experience) => {
-
-    const {title, company, location, period} = props
+const ExperienceItem = ({
+    title, 
+    company, 
+    location, 
+    period
+}: Experience) => {
 
     return(
-        <div className='flex justify-between mb-6'>
+        <div className='flex justify-between my-6'>
             <div className="flex flex-col items-start">
-                <h2 className="text-base font-extrabold text-black">{title}</h2>
+                <div className="text-xl font-bold">{title}</div>
                 <h2 className="text-lg">{company}</h2>
                 <div>{location}</div>
             </div>
@@ -36,5 +28,13 @@ const ExperienceItem = (props: Experience) => {
         </div>
     )
 }
+
+const ExperienceView = withListView(
+    ExperienceItem, 
+    'flex flex-col')
+
+const WrappedExperience = withFetchedData(
+    ExperienceView, 
+    '/data/experience.json')
 
 export const ExperienceBlock = withInfoBlock(WrappedExperience, 'Experience')

@@ -1,22 +1,19 @@
-import { v4 as uuidv4} from 'uuid';
 import { withFetchedData } from './withFetchData';
 import { withInfoBlock } from './withInfoBlock';
+import { withListView } from './withListView';
 
-const SkillsDataView = ({data} : {data : string[]}) => {
-    if(!data) return null
+const SkillItem = ({value} : {value: string}) => {
     return (
-    <div className='flex flex-col items-start h-full'>
-        {data.map(item => (
-            <div className='mb-6' key={uuidv4()}>
-                {item}
-            </div>
-        ))}
-    </div>
-    )
+        <div className='mb-6'>
+            {value}
+        </div>
+        )
 }
 
+const SkillsView = withListView(SkillItem, 'flex flex-col items-start h-full')
+
 const WrappedSkills = withFetchedData(
-    SkillsDataView,
+    SkillsView,
     '/data/skills.json'
 )
 
