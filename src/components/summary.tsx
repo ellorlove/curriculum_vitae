@@ -4,7 +4,7 @@ import { withListView } from "./withListView"
 
 const SummaryItem = ({value} : {value : string}) => {
     return (
-        <>{value ? value : <><br/><br/></>}</>
+        <>{value ? value + ' ' : <><br/><br/></>}</>
     )
 }
 

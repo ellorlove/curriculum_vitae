@@ -1,8 +1,50 @@
 [
-    "TypeScript",
-    "JavaScript",
-    "Redux",
-    "Tailwind CSS",
-    "HTML",
-    "CSS"
+    {
+        "name" : "Frontend",
+        "items" : [
+            "React",
+            "React Hooks",
+            "React Router",
+            "React Navigation",
+            "Vite",
+            "Webpack",
+            "Redux",
+            "Redux Toolkit",
+            "JavaScript",
+            "TypeScript"
+        ]
+    },
+    {
+        "name" : "Backend",
+        "items" : [
+            "NodeJS",
+            "Springboot",
+            "REST"
+        ]
+    },
+    {
+        "name" : "Visual components",
+        "items" : [
+            "HTML + CSS",
+            "SCSS",
+            "SASS",
+            "Tailwind",
+            "Bootstrap"
+        ]
+    },
+    {
+        "name" : "Application Servers",
+        "items" : [
+            "NodeJS",
+            "MAMP"
+        ]
+    },
+    {
+        "name" : "Source Control",
+        "items" : [
+            "Git",
+            "Github",
+            "GitLab"
+        ]
+    }
 ]

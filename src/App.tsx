@@ -12,15 +12,15 @@ function App() {
       <div id='page' className='block'>
         <div className='background h-screen fixed'/>
         <HeaderBlock/>
-        <section id='mainInfo' className='p-8 grid grid-cols-[33%_67%]'>
+        <section id='mainInfo' className='p-8 grid grid-cols-[40%_60%]'>
           <div>
-            <SummaryBlock/>
+            <EducationBlock/>
+            <LanguageBlock/>
             <SkillsBlock/>
           </div>
           <div>
+            <SummaryBlock/>
             <ExperienceBlock/>
-            <EducationBlock/>
-            <LanguageBlock/>
           </div>
         </section>
       </div>

@@ -6,26 +6,34 @@ interface Experience {
     id : number,
     title : string,
     company : string,
-    location : string,
-    period : string
+    period : string,
+    achievements : string[]
 }
 
 const ExperienceItem = ({
     title, 
     company, 
-    location, 
-    period
+    period,
+    achievements
 }: Experience) => {
 
     return(
-        <div className='flex justify-between my-6'>
-            <div className="flex flex-col items-start">
-                <div className="text-xl font-bold">{title}</div>
-                <h2 className="text-lg">{company}</h2>
-                <div>{location}</div>
-            </div>
-            <div>{period}</div>
+        <div className="flex flex-col my-4">
+            <div className='flex justify-between'>
+                <div className="flex flex-col items-start">
+                    <div className="text-xl font-bold">{title}</div>
+                    <h2 className="text-lg">{company}</h2>
+                </div>
+                <div>{period}</div>
+            </div>       
+            {achievements && achievements.length ? 
+            <ul className="text-start list-disc list-inside">
+                {achievements.map(item => (
+                    <li>{item}</li>
+                ))}
+            </ul>: null}
         </div>
+
     )
 }
 

@@ -21,7 +21,8 @@ const EducationItem = ({
 } : Education) => {
     return(
         <div className="flex flex-col items-start my-4">
-            <div><b className="text-xl">{speciality}</b> - {degree}</div>
+            <div className="text-xl font-bold">{speciality}</div>
+            <div>{degree}</div>
             <h2 className="text-lg">{school}</h2>
             <div>{period} {location}</div>
         </div>
