@@ -1,12 +1,15 @@
 import { type ComponentType } from "react";
 import { useFetch } from "../hooks/fetch.hook";
 
-const withFetchedData = <P extends object>(
-    WrappedComponent : ComponentType<P>,
-    url : RequestInfo
+interface WithFetchedDataProps {
+    url: string;
+}
+
+const withFetchedData = <P extends { data: any }>(
+    WrappedComponent : ComponentType<Pick<P, 'data'>>
 ) => {
-    return (props: Omit<P, 'data'>) => {
-        const {data, load, error} = useFetch(url)
+    return (props: WithFetchedDataProps) => {
+        const {data, load, error} = useFetch(props.url)
 
         if(load == 'loading') return null
         if(error){
@@ -14,7 +17,7 @@ const withFetchedData = <P extends object>(
             return null
         }
 
-        return <WrappedComponent {...(props as P)} data={data} />;
+        return <WrappedComponent data={data} />;
     }
 
 }

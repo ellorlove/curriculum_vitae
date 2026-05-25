@@ -1,4 +1,4 @@
 # Curriculum Vitae
 
-My cv made with React + TypeScript + Vite
+My CV made with React + TypeScript + Vite
 

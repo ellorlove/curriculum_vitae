@@ -24,9 +24,6 @@ const LanguageItem = ({
 
 const LanguageView = withListView(LanguageItem, '')
 
-const WrappedLanguages = withFetchedData(
-    LanguageView,
-    '/data/language.json'
-)
+const WrappedLanguages = withFetchedData(LanguageView)
 
 export const LanguageBlock = withInfoBlock(WrappedLanguages, 'Languages')

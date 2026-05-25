@@ -41,8 +41,6 @@ const ExperienceView = withListView(
     ExperienceItem, 
     'flex flex-col')
 
-const WrappedExperience = withFetchedData(
-    ExperienceView, 
-    '/data/experience.json')
+const WrappedExperience = withFetchedData(ExperienceView)
 
 export const ExperienceBlock = withInfoBlock(WrappedExperience, 'Experience')

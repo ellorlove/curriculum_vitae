@@ -1,26 +1,25 @@
 import phoneIcon from '../assets/phone.png';
 import mailIcon from '../assets/mail.png';
 import locationIcon from '../assets/location.png';
-import { withFetchedData } from './withFetchData';
 import { useEffect, useState } from 'react';
 
-interface Contact {
+export interface Info {
   name : string,
-  title : string,
+  position : string,
   phone : string,
   mail : string,
   location : string
 }
 
-const ContactView = ({data} : {data : Contact}) => {
+const InfoView = ({data} : {data : Info}) => {
   if(!data) return null
 
-  const {name, title, phone, mail, location} = data
+  const {name, position, phone, mail, location} = data
 
   return(
     <div id='info' className='flex flex-col items-start'>
       <h1 className='h1'>{name}</h1>
-      <h2 className='h2 mb-8 font-bold'>{title}</h2>
+      <h2 className='h2 mb-8 font-bold'>{position}</h2>
       <div className='flex gap-x-6'>
         <div className='flex items-center'>
           <img className='w-4 h-4 opacity-[.33] mx-1' src={phoneIcon} alt=''/>
@@ -54,15 +53,11 @@ const AvatarView = ({url} : {url : RequestInfo}) => {
   )
 }
 
-const WrappedContact = withFetchedData(
-  ContactView,
-  '/data/contact.json')
-
-export const HeaderBlock = () => {
+export const HeaderBlock = ({info, avatarUrl} : {info : Info, avatarUrl : RequestInfo}) => {
   return(
     <section id='header' className='flex justify-between items-center mx-12 mt-12'>
-      <WrappedContact/>
-      <AvatarView url='/data/avatar.jpg'/>
+      <InfoView data={info}/>
+      <AvatarView url={avatarUrl}/>
     </section>
   )
 }

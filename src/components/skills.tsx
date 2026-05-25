@@ -22,9 +22,6 @@ const SkillItem = ({name, items} : Skill) => {
 
 const SkillsView = withListView(SkillItem, 'flex flex-col items-start h-full')
 
-const WrappedSkills = withFetchedData(
-    SkillsView,
-    '/data/skills.json'
-)
+const WrappedSkills = withFetchedData(SkillsView)
 
 export const SkillsBlock = withInfoBlock(WrappedSkills, 'Skills')

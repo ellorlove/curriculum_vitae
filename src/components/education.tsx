@@ -1,5 +1,3 @@
-import { Fragment } from "react/jsx-runtime";
-import { v4 as uuidv4 } from 'uuid'
 import { withFetchedData } from "./withFetchData";
 import { withInfoBlock } from "./withInfoBlock";
 import { withListView } from "./withListView";
@@ -31,8 +29,6 @@ const EducationItem = ({
 
 const EducationView = withListView(EducationItem, '')
 
-const WrappedEducation = withFetchedData(
-    EducationView,
-    '/data/education.json')
+const WrappedEducation = withFetchedData(EducationView)
 
 export const EducationBlock = withInfoBlock(WrappedEducation, 'Education')

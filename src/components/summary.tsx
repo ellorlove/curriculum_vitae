@@ -10,9 +10,6 @@ const SummaryItem = ({value} : {value : string}) => {
 
 const SummaryView = withListView(SummaryItem, 'text-justify')
 
-const WrappedSummary = withFetchedData(
-    SummaryView,
-    '/data/summary.json'
-)
+const WrappedSummary = withFetchedData(SummaryView)
 
 export const SummaryBlock = withInfoBlock(WrappedSummary, 'Summary')
