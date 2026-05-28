@@ -7,6 +7,7 @@ function App() {
 
     return (
       <div id='page' className='block'>
+        <div className='background h-screen fixed'/>
         <BrowserRouter>
         <Routes>
           <Route path='/:id' element={<Page/>}/>

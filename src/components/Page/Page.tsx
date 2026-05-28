@@ -32,7 +32,6 @@ export const Page = () => {
 
     return (
         <>
-        <div  className='background h-screen fixed'/>
             {data? 
             <div>
                 <HeaderBlock info={data.info} avatarUrl={data.urls.avatar}/>
