@@ -2,7 +2,7 @@ import { withFetchedData } from "./withFetchData"
 import { withInfoBlock } from "./withInfoBlock"
 import { withListView } from "./withListView"
 
-interface Experience {
+export interface Experience {
     id : number,
     title : string,
     company : string,
@@ -10,7 +10,7 @@ interface Experience {
     achievements : string[]
 }
 
-const ExperienceItem = ({
+export const ExperienceItem = ({
     title, 
     company, 
     period,

@@ -10,7 +10,7 @@ interface Education {
     location : string
 }
 
-const EducationItem = ({
+export const EducationItem = ({
     speciality,
     degree,
     school,
